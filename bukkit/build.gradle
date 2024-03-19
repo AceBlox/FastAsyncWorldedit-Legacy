@@ -1,5 +1,29 @@
 repositories {
     flatDir {dirs 'lib'}
+    maven {url "https://mvnrepository.com/artifact/"}
+    mavenCentral()
+    maven {url "https://repo.dmulloy2.net/content/groups/public/"}
+    maven {url "https://repo.destroystokyo.com/repository/maven-public//"}
+    //maven {url "https://ci.emc.gs/nexus/content/groups/aikar/" }
+    maven {url "https://ci.athion.net/plugin/repository/tools/"}
+    mavenLocal()
+    maven {url "https://hub.spigotmc.org/nexus/content/groups/public/"}
+    maven {url "https://maven.enginehub.org/repo/"}
+    maven {url "https://repo.maven.apache.org/maven2"}
+    maven {url "https://ci.frostcast.net/plugin/repository/everything"}
+    maven {url "https://repo.spongepowered.org/maven"}
+    maven {url "https://dl.bintray.com/tastybento/maven-repo"}
+    maven {url "https://repo.inventivetalent.org/content/groups/public/"}
+    maven {url "https://store.ttyh.ru/libraries/"}
+    maven {url "https://repo.dmulloy2.net/nexus/repository/public/"}
+    maven {url "https://maven.elmakers.com/repository/"}
+    maven {url "https://ci.ender.zone/plugin/repository/everything/"}
+    maven {url "https://plotsquared.com/mvn/"}
+    maven {url "https://jitpack.io" }
+    maven {url "https://repo.extendedclip.com/content/repositories/public/"}
+    maven {url "https://repo.minebench.de/"}
+    maven {url "https://repo.dustplanet.de/artifactory/ext-release-local/"}
+    maven {url "https://repo.codemc.io/repository/maven-public/"}
 }
 dependencies {
     compile project(':core')
@@ -7,27 +31,27 @@ dependencies {
     compile('com.destroystokyo.paper:paper-api:1.12-R0.1-SNAPSHOT') {
         exclude group: 'net.md-5'
     }
-    compile 'org.bukkit.craftbukkit:Craftbukkit_1_12:1.12.1'
-    compile 'org.bukkit.craftbukkit:Craftbukkit_1_11:1.11'
-    compile 'org.bukkit.craftbukkit:Craftbukkit_1_10:1.10'
-    compile 'org.bukkit.craftbukkit:Craftbukkit_1_9:1.9.4'
-    compile 'org.bukkit.craftbukkit:Craftbukkit_1_8:1.8.8'
-    compile 'org.bukkit.craftbukkit:Craftbukkit_1_7:1.7.10'
-    compile 'net.milkbowl.vault:VaultAPI:1.5.6'
-    compile 'com.massivecraft:factions:2.8.0'
-    compile 'com.factionsone:FactionsOne:1.2.2'
-    compile 'me.ryanhamshire:GriefPrevention:11.5.2'
-    compile 'com.massivecraft:mcore:7.0.1'
-    compile 'net.jzx7:regios:5.9.9'
-    compile 'com.bekvon.bukkit.residence:Residence:4.5._13.1'
-    compile 'com.palmergames.bukkit:towny:0.84.0.9'
-    compile 'com.worldcretornica:plotme_core:0.16.3'
-    compile 'junit:junit:4.11'
-    compile 'com.sk89q.worldedit:worldedit-bukkit:6.1.4-SNAPSHOT'
-    compile 'com.sk89q.worldedit:worldedit-core:6.1.4-SNAPSHOT'
-    compile 'com.thevoxelbox.voxelsniper:voxelsniper:5.171.0'
-    compile 'com.comphenix.protocol:ProtocolLib-API:4.4.0'
-    compile 'com.wasteofplastic:askyblock:3.0.8.2'
+    compile ('org.bukkit.craftbukkit:Craftbukkit_1_12:1.12.1')
+    compile ('org.bukkit.craftbukkit:Craftbukkit_1_11:1.11')
+    compile ('org.bukkit.craftbukkit:Craftbukkit_1_10:1.10')
+    compile ('org.bukkit.craftbukkit:Craftbukkit_1_9:1.9.4')
+    compile ('org.bukkit.craftbukkit:Craftbukkit_1_8:1.8.8')
+    compile ('org.bukkit.craftbukkit:Craftbukkit_1_7:1.7.10')
+    compile ('net.milkbowl.vault:VaultAPI:1.7')
+    compile ('com.massivecraft:factions:2.14.0')
+    compile ('com.factionsone:FactionsOne:1.2.2')
+    compile ('me.ryanhamshire:GriefPrevention:11.5.2')
+    compile ('com.massivecraft:mcore:7.0.1')
+    compile ('net.jzx7:regios:5.9.9')
+    compile ('com.bekvon.bukkit.residence:Residence:4.5._13.1')
+    compile ('com.palmergames.bukkit:towny:0.84.0.9')
+    compile ('com.worldcretornica:plotme_core:0.16.3')
+    compile ('junit:junit:4.11')
+    compile ('com.sk89q.worldedit:worldedit-bukkit:6.1.4-SNAPSHOT')
+    compile ('com.sk89q.worldedit:worldedit-core:6.1.4-SNAPSHOT')
+    compile ('com.thevoxelbox.voxelsniper:voxelsniper:5.171.0')
+    compile ('com.comphenix.protocol:ProtocolLib-API:4.4.0')
+    compile ("com.wasteofplastic:askyblock:3.0.9.2")
     compile('org.inventivetalent:mapmanager:1.7.2-SNAPSHOT') {
         transitive = false
     }
@@ -47,7 +71,7 @@ processResources {
 
 jar.archiveName="fawe-bukkit-${project.parent.version}.jar"
 jar.destinationDir = file '../mvn/com/boydti/fawe-bukkit/' + project.parent.version
-task createPom << {
+task createPom doLast {
     pom {
         project {
             groupId 'com.boydti'

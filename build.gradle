@@ -3,9 +3,12 @@ buildscript {
         mavenCentral()
         maven { url = "https://oss.sonatype.org/content/repositories/snapshots/" }
         jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
 	dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+        classpath("com.github.jengelman.gradle.plugins:shadow:5.0.0")
         classpath 'org.ajoberstar:grgit:1.7.0'
     }
     configurations.all {
@@ -113,6 +116,10 @@ subprojects {
         maven {url "https://maven.elmakers.com/repository/"}
         maven {url "https://ci.ender.zone/plugin/repository/everything/"}
         maven {url "https://plotsquared.com/mvn/"}
+        maven {url "https://jitpack.io" }
+        maven {url "https://repo.extendedclip.com/content/repositories/public/"}
+        maven {url "https://repo.minebench.de/"}
+        maven {url "https://repo.dustplanet.de/artifactory/ext-release-local/"}
     }
 }
 task aggregatedJavadocs(type: Javadoc, description: 'Generate javadocs from all child projects as if it was a single project', group: 'Documentation') {
